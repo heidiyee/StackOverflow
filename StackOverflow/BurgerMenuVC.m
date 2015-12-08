@@ -6,13 +6,13 @@
 //  Copyright © 2015 Heidi Yee. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "BurgerMenuVC.h"
 
-@interface ViewController ()
+@interface BurgerMenuVC ()
 
 @end
 
-@implementation ViewController
+@implementation BurgerMenuVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

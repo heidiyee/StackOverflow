@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "OAuthVC.h"
 
 @interface AppDelegate ()
+
 
 @end
 
@@ -16,7 +18,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [self checkForAccessToken];
+    
     return YES;
 }
 
@@ -41,5 +44,33 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void)checkForAccessToken {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults stringForKey:@"accessToken"]) {
+        NSLog(@"There is a token");
+    }
+    [self getToken];
+}
+
+- (void)getToken {
+    UIViewController *mainViewController = [self.window rootViewController];
+    OAuthVC *oAuthVC = [[OAuthVC alloc]init];
+    [mainViewController addChildViewController:oAuthVC];
+    [mainViewController.view addSubview:oAuthVC.view];
+    [oAuthVC didMoveToParentViewController:mainViewController];
+    __weak typeof(oAuthVC) weakOauthVC = oAuthVC;
+    
+    oAuthVC.completion = ^() {
+        
+        __strong typeof(oAuthVC) strongOauthVC = weakOauthVC;
+        
+        [strongOauthVC.view removeFromSuperview];
+        [strongOauthVC removeFromParentViewController];
+    };
+    
+}
+
+
 
 @end
