@@ -12,10 +12,10 @@
 @interface Owner : NSObject
 
 @property int userId;
-@property NSString *profileURL;
+@property NSURL *profileURL;
 @property NSString *displayName;
 @property NSString *linkURL;
 
--(id)initWithUserId:(int)userId profileURL:(NSString *)profileURL displayName:(NSString *)displayName linkURL:(NSString *)linkURL;
+-(id)initWithUserId:(int)userId profileURL:(NSURL *)profileURL displayName:(NSString *)displayName linkURL:(NSString *)linkURL;
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation Owner
 
--(id)initWithUserId:(int)userId profileURL:(NSString *)profileURL displayName:(NSString *)displayName linkURL:(NSString *)linkURL {
+-(id)initWithUserId:(int)userId profileURL:(NSURL *)profileURL displayName:(NSString *)displayName linkURL:(NSString *)linkURL {
     
     if (self = [super init])
     {
