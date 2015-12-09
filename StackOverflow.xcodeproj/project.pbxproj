@@ -17,6 +17,10 @@
 		B7749D6B1C162D31005C32E8 /* SearchQuestionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B7749D6A1C162D31005C32E8 /* SearchQuestionsVC.m */; };
 		B7749D6E1C162D41005C32E8 /* MyQuestionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B7749D6D1C162D41005C32E8 /* MyQuestionsVC.m */; };
 		B7749D711C16672D005C32E8 /* OAuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B7749D701C16672D005C32E8 /* OAuthVC.m */; };
+		B794DDD61C1783E1000CCACF /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = B794DDD51C1783E1000CCACF /* Owner.m */; };
+		B794DDD91C178BD7000CCACF /* SOAPIServiceSearchQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = B794DDD81C178BD7000CCACF /* SOAPIServiceSearchQuestion.m */; };
+		B794DDDE1C178F17000CCACF /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = B794DDDD1C178F17000CCACF /* Question.m */; };
+		B794DDE81C17AB37000CCACF /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B794DDE71C17AB37000CCACF /* JSONParser.m */; };
 		F9EF334B2D4CC7A34974AEC1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E43E2FA051BF1A30B49F19A4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +45,15 @@
 		B7749D6D1C162D41005C32E8 /* MyQuestionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQuestionsVC.m; sourceTree = "<group>"; };
 		B7749D6F1C16672D005C32E8 /* OAuthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthVC.h; sourceTree = "<group>"; };
 		B7749D701C16672D005C32E8 /* OAuthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthVC.m; sourceTree = "<group>"; };
+		B794DDD41C1783E1000CCACF /* Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
+		B794DDD51C1783E1000CCACF /* Owner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Owner.m; sourceTree = "<group>"; };
+		B794DDD71C178BD7000CCACF /* SOAPIServiceSearchQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAPIServiceSearchQuestion.h; sourceTree = "<group>"; };
+		B794DDD81C178BD7000CCACF /* SOAPIServiceSearchQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOAPIServiceSearchQuestion.m; sourceTree = "<group>"; };
+		B794DDDC1C178F17000CCACF /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		B794DDDD1C178F17000CCACF /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		B794DDDF1C1790F7000CCACF /* Completions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Completions.h; sourceTree = "<group>"; };
+		B794DDE61C17AB37000CCACF /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
+		B794DDE71C17AB37000CCACF /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONParser.m; sourceTree = "<group>"; };
 		E43E2FA051BF1A30B49F19A4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,6 +107,8 @@
 		B7749D4E1C162A20005C32E8 /* StackOverflow */ = {
 			isa = PBXGroup;
 			children = (
+				B794DDDB1C178EF9000CCACF /* Stack Overflow API */,
+				B794DDDA1C178EE6000CCACF /* Models */,
 				B7749D521C162A20005C32E8 /* AppDelegate.h */,
 				B7749D531C162A20005C32E8 /* AppDelegate.m */,
 				B7749D721C16673C005C32E8 /* VC */,
@@ -129,6 +144,29 @@
 				B7749D6D1C162D41005C32E8 /* MyQuestionsVC.m */,
 			);
 			name = VC;
+			sourceTree = "<group>";
+		};
+		B794DDDA1C178EE6000CCACF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B794DDD41C1783E1000CCACF /* Owner.h */,
+				B794DDD51C1783E1000CCACF /* Owner.m */,
+				B794DDDC1C178F17000CCACF /* Question.h */,
+				B794DDDD1C178F17000CCACF /* Question.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		B794DDDB1C178EF9000CCACF /* Stack Overflow API */ = {
+			isa = PBXGroup;
+			children = (
+				B794DDDF1C1790F7000CCACF /* Completions.h */,
+				B794DDD71C178BD7000CCACF /* SOAPIServiceSearchQuestion.h */,
+				B794DDD81C178BD7000CCACF /* SOAPIServiceSearchQuestion.m */,
+				B794DDE61C17AB37000CCACF /* JSONParser.h */,
+				B794DDE71C17AB37000CCACF /* JSONParser.m */,
+			);
+			name = "Stack Overflow API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,9 +292,13 @@
 			files = (
 				B7749D571C162A20005C32E8 /* BurgerMenuVC.m in Sources */,
 				B7749D681C162D17005C32E8 /* ContainerVC.m in Sources */,
+				B794DDE81C17AB37000CCACF /* JSONParser.m in Sources */,
+				B794DDD91C178BD7000CCACF /* SOAPIServiceSearchQuestion.m in Sources */,
 				B7749D6B1C162D31005C32E8 /* SearchQuestionsVC.m in Sources */,
 				B7749D541C162A20005C32E8 /* AppDelegate.m in Sources */,
 				B7749D711C16672D005C32E8 /* OAuthVC.m in Sources */,
+				B794DDD61C1783E1000CCACF /* Owner.m in Sources */,
+				B794DDDE1C178F17000CCACF /* Question.m in Sources */,
 				B7749D6E1C162D41005C32E8 /* MyQuestionsVC.m in Sources */,
 				B7749D511C162A20005C32E8 /* main.m in Sources */,
 			);

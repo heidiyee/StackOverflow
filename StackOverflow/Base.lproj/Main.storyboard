@@ -35,19 +35,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="main" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oe3-tU-jo6">
-                                <rect key="frame" x="282" y="289" width="37" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ROR-kt-ReG">
+                                <rect key="frame" x="0.0" y="55" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g3d-Ti-1CY">
+                                <rect key="frame" x="0.0" y="99" width="600" height="501"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="vRh-3i-k6l" style="IBUITableViewCellStyleDefault" id="eKb-P3-g1Q">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eKb-P3-g1Q" id="cJx-f8-UkK">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vRh-3i-k6l">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Oe3-tU-jo6" firstAttribute="centerX" secondItem="x3q-YF-iFq" secondAttribute="centerX" id="eEk-PZ-Vcl"/>
-                            <constraint firstItem="Oe3-tU-jo6" firstAttribute="centerY" secondItem="x3q-YF-iFq" secondAttribute="centerY" id="hK7-re-rGO"/>
+                            <constraint firstItem="g3d-Ti-1CY" firstAttribute="top" secondItem="ROR-kt-ReG" secondAttribute="bottom" id="9dx-7g-mFZ"/>
+                            <constraint firstAttribute="trailing" secondItem="ROR-kt-ReG" secondAttribute="trailing" id="HOd-4q-6NI"/>
+                            <constraint firstAttribute="trailing" secondItem="g3d-Ti-1CY" secondAttribute="trailing" id="KS0-Sa-iJx"/>
+                            <constraint firstItem="xnN-rq-7RS" firstAttribute="top" secondItem="g3d-Ti-1CY" secondAttribute="bottom" id="PYi-3l-f4y"/>
+                            <constraint firstItem="ROR-kt-ReG" firstAttribute="leading" secondItem="x3q-YF-iFq" secondAttribute="leading" id="VJE-pK-qdI"/>
+                            <constraint firstItem="g3d-Ti-1CY" firstAttribute="leading" secondItem="x3q-YF-iFq" secondAttribute="leading" id="XH8-sa-2eH"/>
+                            <constraint firstItem="ROR-kt-ReG" firstAttribute="top" secondItem="x3q-YF-iFq" secondAttribute="top" constant="55" id="cVU-ya-rM7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchQuestions" destination="ROR-kt-ReG" id="aVy-dK-ITv"/>
+                        <outlet property="tableView" destination="g3d-Ti-1CY" id="Ca5-VC-GUb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xci-1r-ycP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
