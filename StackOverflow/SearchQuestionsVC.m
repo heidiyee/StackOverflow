@@ -52,17 +52,14 @@ NSString const *kRegexPattern = @" ";
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     if (searchBar.text) {
-        self.urlString = searchBar.text;
-        NSError *error = NULL;
-        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@" " options:NSRegularExpressionCaseInsensitive error:&error];
-        NSUInteger numberOfMatches = [regex numberOfMatchesInString:self.urlString options:0 range:NSMakeRange(0, [self.urlString length])];
         
-        if (numberOfMatches > 0) {
-            [self.urlString stringByReplacingOccurrencesOfString:@" " withString:@"%%%"];
-        }
-            
-        [SOAPIServiceSearchQuestion searchQuestionWithTerm:self.urlString pageNumber:1 withCompletion:^(NSArray * _Nullable data, NSError * _Nullable error) {
-            self.dataSource = data;
+        NSString *encodedStringURL = [searchBar.text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+        NSLog(@"%@", encodedStringURL);
+        
+        [SOAPIServiceSearchQuestion searchQuestionWithTerm:encodedStringURL pageNumber:1 withCompletion:^(NSArray * _Nullable data, NSError * _Nullable error) {
+            if (error != nil) {
+                self.dataSource = data;
+            }
         }];
     }
 }

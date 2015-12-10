@@ -49,8 +49,9 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults stringForKey:@"accessToken"]) {
         NSLog(@"There is a token");
+    } else {
+        [self getToken];
     }
-    [self getToken];
 }
 
 - (void)getToken {
