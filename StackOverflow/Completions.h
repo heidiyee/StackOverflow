@@ -7,8 +7,11 @@
 //
 
 @import UIKit;
+#import "Owner.h"
 
 typedef void (^kNSDataCompletionHandler)(NSData * _Nullable data , NSError  * _Nullable  error);
+
+typedef void (^kOwnerCompletionHandler)(Owner * _Nullable owner , NSError  * _Nullable  error);
 
 typedef void (^kNSDictionaryCompletionHandler)(NSDictionary * _Nullable data , NSError  * _Nullable  error);
 

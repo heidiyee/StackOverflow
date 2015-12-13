@@ -57,8 +57,12 @@ NSString const *kRegexPattern = @" ";
         NSLog(@"%@", encodedStringURL);
         
         [SOAPIServiceSearchQuestion searchQuestionWithTerm:encodedStringURL pageNumber:1 withCompletion:^(NSArray * _Nullable data, NSError * _Nullable error) {
-            if (error != nil) {
+            if (error == nil) {
+                if (data.count == 0) {
+                    NSLog(@"no data");
+                }
                 self.dataSource = data;
+                [searchBar resignFirstResponder];
             }
         }];
     }
@@ -74,10 +78,6 @@ NSString const *kRegexPattern = @" ";
     
     return cell;
 }
-
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 75;
-//}
 
 
 @end

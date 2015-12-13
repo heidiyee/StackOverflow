@@ -61,4 +61,40 @@
     return nil;
 }
 
++ (Owner *)ownerFromData:(NSData *)data {
+    
+    Owner *result = [[Owner alloc] init];
+    
+    if ([data isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *rootObject = (NSDictionary *) data;
+        
+        
+        if (rootObject) {
+            NSMutableArray *items = rootObject[@"items"];
+            if (items) {
+                for (NSDictionary *item in items) {
+                    
+                    NSString *displayName = item[@"display_name"];
+                    NSString *linkURL = item[@"link"];
+                    int userId = (int) item[@"user_id"];
+                    
+                    NSString *urlString = item[@"profile_image"];
+                    NSURL *profileURL = [[NSURL alloc]initWithString:urlString];
+                    NSLog(@"%@", profileURL);
+                    
+                    result = [[Owner alloc]initWithUserId:userId profileURL:profileURL displayName:displayName linkURL:linkURL];
+                    
+                }
+            }
+            
+            if (result != nil) {
+                return result;
+            }
+        }
+    }
+    
+    return nil;
+}
+
+
 @end

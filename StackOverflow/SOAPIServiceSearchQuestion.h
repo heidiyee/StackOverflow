@@ -25,5 +25,6 @@ typedef enum {
 @interface SOAPIServiceSearchQuestion : NSObject
 
 + (void)searchQuestionWithTerm:(NSString *)searchTerm pageNumber:(int)pageNumber withCompletion:(kNSArrayCompletionHandler)completion;
++ (void)getUserWithCompletion:(kOwnerCompletionHandler)completion;
 
 @end

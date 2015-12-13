@@ -48,7 +48,7 @@
 - (void)checkForAccessToken {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults stringForKey:@"accessToken"]) {
-        NSLog(@"There is a token");
+        NSLog(@"access token: %@", [defaults stringForKey:@"accessToken"]);
     } else {
         [self getToken];
     }
@@ -69,7 +69,6 @@
         [strongOauthVC.view removeFromSuperview];
         [strongOauthVC removeFromParentViewController];
     };
-    
 }
 
 

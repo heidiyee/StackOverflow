@@ -46,7 +46,8 @@ NSString const *kRedirectURL = @"https://stackexchange.com/oauth/login_success";
     
     if([requestURL.description containsString:@"access_token"]){
         NSArray *urlComponents = [[requestURL description] componentsSeparatedByString:@"="];
-        NSString *accessToken = urlComponents.lastObject;
+        NSArray *accessTokenComponents = [[urlComponents[1] description] componentsSeparatedByString:@"&"] ;
+        NSString *accessToken = accessTokenComponents.firstObject;
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setObject:accessToken forKey:@"accessToken"];
         [userDefaults synchronize];

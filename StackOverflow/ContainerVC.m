@@ -11,6 +11,7 @@
 #import "SearchQuestionsVC.h"
 #import "MyQuestionsVC.h"
 #import "QuartzCore/QuartzCore.h"
+#import "ProfileVC.h"
 
 CGFloat const kBurgerButtonWidth = 50;
 CGFloat const kburgerButtonHeight = 50;
@@ -24,6 +25,7 @@ CGFloat const kburgerOpenScreenMultiplier = 3.0;
 @property (strong, nonatomic) BurgerMenuVC *burgerMenuVC;
 @property (strong, nonatomic) SearchQuestionsVC *searchQuestionsVC;
 @property (strong, nonatomic) MyQuestionsVC *myQuestionsVC;
+@property (strong, nonatomic) ProfileVC *profileVC;
 @property (strong, nonatomic) UIViewController *mainContentVC;
 @property (strong, nonatomic) NSArray *viewControllerArray;
 @property (strong, nonatomic) UIButton *burgerButton;
@@ -45,7 +47,7 @@ CGFloat const kburgerOpenScreenMultiplier = 3.0;
     [self setupMainVC];
     [self setupOtherVC];
     
-    self.viewControllerArray = @[self.searchQuestionsVC, self.myQuestionsVC];
+    self.viewControllerArray = @[self.searchQuestionsVC, self.myQuestionsVC, self.profileVC];
 }
 
 - (void)setupBurgerMenu {
@@ -72,6 +74,7 @@ CGFloat const kburgerOpenScreenMultiplier = 3.0;
 
 - (void)setupOtherVC {
     self.myQuestionsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyQuestionsVC"];
+    self.profileVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileVC"];
 }
 
 - (void)setupBurgerButton {
@@ -151,9 +154,7 @@ CGFloat const kburgerOpenScreenMultiplier = 3.0;
             self.mainContentVC.view.center = CGPointMake(self.mainContentVC.view.center.x + translation.x, self.mainContentVC.view.center.y);
             [sender setTranslation:CGPointZero inView:self.mainContentVC.view];
         }
-    }
-    
-    if (sender.state == UIGestureRecognizerStateChanged) {
+        
         if (velocity.x < 0) {
             self.mainContentVC.view.center = CGPointMake(self.mainContentVC.view.center.x + translation.x, self.mainContentVC.view.center.y);
             [sender setTranslation:CGPointZero inView:self.mainContentVC.view];
@@ -198,9 +199,6 @@ CGFloat const kburgerOpenScreenMultiplier = 3.0;
     }
 }
 
-
-
-
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Selected Menu Item:%ld",(long)indexPath.row);
@@ -209,6 +207,22 @@ CGFloat const kburgerOpenScreenMultiplier = 3.0;
     if (![viewController isEqual:self.mainContentVC]) {
         [self switchToViewController:viewController];
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 55.0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.mainContentVC.view.frame.size.width, 55.0)];
+    view.backgroundColor = [UIColor whiteColor];
+    UILabel *menu = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, self.mainContentVC.view.frame.size.width, 45)];
+    menu.text = [[NSString alloc]initWithFormat:@"Menu"];
+    //menu.textColor = [UIColor whiteColor];
+    [view addSubview:menu];
+    
+    return view;
 }
 
 

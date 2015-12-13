@@ -11,6 +11,7 @@
 
 @interface JSONParser : NSObject
 
-+(NSMutableArray *)questionsArrayFromData:(NSData *)data;
++ (NSMutableArray *)questionsArrayFromData:(NSData *)data;
++ (Owner *)ownerFromData:(NSData *)data;
 
 @end
